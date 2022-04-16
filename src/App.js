@@ -36,7 +36,7 @@ const RecipeBundel= (props)=>{
                 <td>{ingredientsObj.text}</td>
                 <td>{ingredientsObj.weight}</td>
               </tr> 
-              { return 0; }  
+               return 0;   
               })}
             
             </tbody>           
@@ -87,7 +87,7 @@ const onTextChange =(event)=>{
         
           {recipeList.length ? recipeList.map((recipeObject)=>{
             <RecipeBundel recipeObject={recipeObject.recipe}/>  
-           { return 0; }         
+            return 0;          
           }):<Placeholder src='/fastfood_worker.svg'/>}
           {/* <RecipeContainer>
           <CoverImg src='/fastfood_worker.svg'/>
