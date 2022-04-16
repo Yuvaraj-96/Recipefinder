@@ -1,13 +1,13 @@
-import styled from 'styled-components';
+
 import{ useState} from 'react';
 import Axios from "axios";
-import{Container,Header,AppName,AppIcon,Search,SearchInput,SearchIcon,sampleResponseData} from '../src/components/headerComponent';
+import{Container,Header,AppName,AppIcon,Search,SearchInput,SearchIcon} from '../src/components/headerComponent';
 import{RecipeListContainer,RecipeContainer,CoverImg,RecipeName,IngredientText,SeeMoreText,Placeholder} from '../src/components/recipeComponent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
-//import sampleResponseData from '../src/sampleData';
+
 
 
 
@@ -35,7 +35,8 @@ const RecipeBundel= (props)=>{
                 <tr>
                 <td>{ingredientsObj.text}</td>
                 <td>{ingredientsObj.weight}</td>
-              </tr>
+              </tr> 
+              { return 0; }  
               })}
             
             </tbody>           
@@ -63,7 +64,7 @@ const fetchRecipe=async (searchKey)=>
     console.log(response);
    });
 
-  //const response =sampleResponseData;
+  
   updateRecipeList(response.data.hits);
 }
 const onTextChange =(event)=>{
@@ -85,7 +86,8 @@ const onTextChange =(event)=>{
       <RecipeListContainer>
         
           {recipeList.length ? recipeList.map((recipeObject)=>{
-            <RecipeBundel recipeObject={recipeObject.recipe}/>            
+            <RecipeBundel recipeObject={recipeObject.recipe}/>  
+           { return 0; }         
           }):<Placeholder src='/fastfood_worker.svg'/>}
           {/* <RecipeContainer>
           <CoverImg src='/fastfood_worker.svg'/>
