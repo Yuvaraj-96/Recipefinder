@@ -16,7 +16,7 @@ function App() {
 const [timeoutId, updateTimeoutId]= useState();
 const [recipeList, updateRecipeList]= useState([]);
 const AppID='bed1b98c';
-const AppKey='4f30067680531eef7d639e6f964723df';
+const AppKey='94c038a72f48be67d9904053e3685005';
 
 const RecipeBundel= (props)=>{
   const[show, SetShow]= useState(false);
@@ -31,13 +31,13 @@ const RecipeBundel= (props)=>{
               <th>Weight</th>
             </thead>
             <tbody>
-              {recipeObje.ingredients.map((ingredientsObj)=>{
+              {recipeObje.ingredients.map((ingredientsObj)=>(
                 <tr>
                 <td>{ingredientsObj.text}</td>
                 <td>{ingredientsObj.weight}</td>
               </tr> 
-               return 0;   
-              })}
+              //  return 0;   
+              ))}
             
             </tbody>           
           </table>
@@ -59,9 +59,11 @@ const RecipeBundel= (props)=>{
 }
 const fetchRecipe=async (searchKey)=>
 {
+  
 
    const response = await Axios.get(`https://api.edamam.com/search?app_id=${AppID}&app_key=${AppKey}&q=${searchKey}`).then(function(response){
     console.log(response);
+    return response;
    });
 
   
@@ -73,7 +75,7 @@ const onTextChange =(event)=>{
   updateTimeoutId(timeout);
   console.log("API Call");
 };
-
+console.log(recipeList);
   return (<>
     <Container>   
        <Header> 
@@ -85,10 +87,10 @@ const onTextChange =(event)=>{
       </Header> 
       <RecipeListContainer>
         
-          {recipeList.length ? recipeList.map((recipeObject)=>{
-            <RecipeBundel recipeObject={recipeObject.recipe}/>  
-            return 0;          
-          }):<Placeholder src='/fastfood_worker.svg'/>}
+          {recipeList.length ? recipeList.map((recipeObject)=>(
+            <RecipeBundel recipeObje={recipeObject.recipe}/>  
+                     
+          )):<Placeholder src='/fastfood_worker.svg'/>}
           {/* <RecipeContainer>
           <CoverImg src='/fastfood_worker.svg'/>
           <RecipeName>Recipe Name</RecipeName>
